@@ -31,10 +31,8 @@ withCredentials([usernameColonPassword(credentialsId: 'rashadmorton-harbor-auth'
     script {
        docker.build('$DB_IMAGE_NAME-$APP_HASH', '-f ./app/Dockerfile ./afs-student-labs')
        docker.withRegistry('https://$HARBOR_REGISTRY', 'rashadmorton-harbor-auth') {
-           sh 'docker tag $DB_IMAGE_NAME-
-       $APP_HASH $HARBOR_REGISTRY/$HARBOR_PROJECT/$DB_IMAGE_NAME:$APP_HASH-$PIPELINE_HASH'
-           sh 'docker push $HARBOR_REGISTRY/$HARBOR_PROJECT/$DB_IMAGE_NAME:$APP_HASH-
-       $PIPELINE_HASH'
+       sh 'docker tag $DB_IMAGE_NAME-$APP_HASH $HARBOR_REGISTRY/$HARBOR_PROJECT/$DB_IMAGE_NAME:$APP_HASH-$PIPELINE_HASH'
+           sh 'docker push $HARBOR_REGISTRY/$HARBOR_PROJECT/$DB_IMAGE_NAME:$APP_HASH-$PIPELINE_HASH'
        }
     }   
 } 
