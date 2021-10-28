@@ -7,8 +7,7 @@ pipeline {
      HARBOR_REGISTRY = 'harbor.dev.afsmtddso.com'
      HARBOR_PROJECT = 'rashadmorton-devsecops'
      APP_IMAGE_NAME = 'app'
-     DB_IMAGE_NAME = 'db'
- }    
+     }    
  stages {
  stage('Application repository') {
  steps {
@@ -67,6 +66,7 @@ stage('Test'){
        sh 'rm -rf .git ./*'
      } 
  }
+
 
 
 

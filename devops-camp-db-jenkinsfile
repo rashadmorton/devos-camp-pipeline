@@ -74,9 +74,6 @@ withCredentials([usernamePassword(credentialsId: 'rashadmorton-harbor-auth', use
                     }
                 }
             }
-
-
-    }
     post {
     cleanup {
             echo "Clean workspace"
@@ -85,5 +82,4 @@ withCredentials([usernamePassword(credentialsId: 'rashadmorton-harbor-auth', use
         }
 
     }
-}
 
