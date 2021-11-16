@@ -1,8 +1,7 @@
-pipeline {
-    agent {
-        label 'jenkins-agent'
-    }
-    environment {
+def label = "mypod-${UUID.randomUUID().toString()}"
+def serviceaccount = "jen1-jenkins"
+node(label) {  
+        environment {
     	PIPELINE_HASH = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
     	HARBOR_REGISTRY = 'harbor.dev.skylab-acp4g.com'
     	HARBOR_PROJECT = 'skylab'   
